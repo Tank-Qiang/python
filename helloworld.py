@@ -4,3 +4,8 @@
 
 
 print 'helloworld'
+name = raw_input()
+if name == "wenqiang":
+	print 'login success'
+else:
+	print 'gun'
