@@ -11,11 +11,11 @@ import os
 import commands
 import time
 log_dir = '/data/log/apps/red/'
-onepiece_url = "http://hostname/alarm/receptor"
+test_url = "http://hostname/alarm/receptor"
 old_txt = '/data/log/apps/'
 sys_time1 = time.strftime('%Y-%m-%d',time.localtime(time.time()))
 log_name1 = "red-"+sys_time1
-project = 'onepiece-red'
+project = 'test'
 #需要注意的是：首次执行脚本前需要执行两次
 #对比当前切割文件是否是整点文件，如果是整点文件则继续读旧文件
 #脚本生成了一个sys_file.old 用于记录每次打开的文件时间戳
@@ -108,13 +108,13 @@ def grep_key(num,logname):
         for line in key_list:
             if vl in line:
                name = project%"业务日志error"
-               product = "ONEPIECE_RED"
+               product = "test_RED"
                content = line
                html_content = line
-               send_onepiece(name, product, content, html_content)
+               send_test(name, product, content, html_content)
             else:
                 pass
-def send_onepiece(name, product, content, html_content):
+def send_test(name, product, content, html_content):
     payload = {
             "name": name,
             "group": 2,
@@ -124,7 +124,7 @@ def send_onepiece(name, product, content, html_content):
             "html_content": html_content,
             "no_deal": 0
         }
-    r = requests.post(onepiece_url, data=payload)
+    r = requests.post(test_url, data=payload)
     print r.status_code
 
 
