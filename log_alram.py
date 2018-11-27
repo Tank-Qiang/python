@@ -11,7 +11,7 @@ import os
 import commands
 import time
 log_dir = '/data/log/apps/red/'
-onepiece_url = "http://innerapi.onepiece.ksyun.com/alarm/receptor"
+onepiece_url = "http://hostname/alarm/receptor"
 old_txt = '/data/log/apps/'
 sys_time1 = time.strftime('%Y-%m-%d',time.localtime(time.time()))
 log_name1 = "red-"+sys_time1
